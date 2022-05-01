@@ -1,6 +1,5 @@
 import time
 from selenium import webdriver
-from settings import (StudentID,Password,Email,Phone)
 from selenium.webdriver.common.by import By #看起來更酷的選擇器
 from selenium.webdriver.common.keys import Keys #用來發送一些酷酷的東西
 from selenium.webdriver.support.ui import WebDriverWait #我們太快了，要等一下其他人的腳步

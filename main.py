@@ -21,7 +21,6 @@ wait = WebDriverWait(browser, 10)
 ''''''
 
 def login():
-    #browser.get("https://pacific.asia.edu.tw/HealthDeclaration#/Login")
     browser.find_element(By.ID, "username").send_keys(StudentID)
     browser.find_element(By.ID, "password").send_keys(Password)
     browser.find_element(By.ID, "password").send_keys(Keys.ENTER)

@@ -16,3 +16,9 @@ pip install webdriver-manager
 ```
 
 下載 [main.py](https://github.com/linchenghan/AUHealthDeclaration/blob/main/main.py) 並修改個人資料
+
+---
+
+### 自動化
+
+Windows - 使用工作排程器

@@ -24,7 +24,7 @@ def login():
     browser.find_element(By.ID, "username").send_keys(StudentID)
     browser.find_element(By.ID, "password").send_keys(Password)
     browser.find_element(By.ID, "password").send_keys(Keys.ENTER)
-    print("登入成功")
+    print("登入中...")
 
 def check_ver():
     
@@ -61,7 +61,8 @@ def main():
     try:
         login()
     except:
-        print("登入失敗")
+        print(browser.switchTo().alert().getText())
+        print("登入失敗，請檢查帳號和密碼是否正確")
     check_ver()
     write()
 

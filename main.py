@@ -15,7 +15,7 @@ Password = "密碼"
 Email = "電郵"
 Phone = "電話"
 
-codeVer = 'v.1.3.14'
+codeVer = 'v.1.3.15'
 browser.set_page_load_timeout(100)
 wait = WebDriverWait(browser, 10)
 ''''''

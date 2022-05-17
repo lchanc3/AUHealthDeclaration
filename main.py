@@ -38,7 +38,7 @@ def login():
 
 def check_ver():
     
-    wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn-outline-primary"))).click()
+    wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn-outline-primary"))).click() #"同意"
     browser.get("https://pacific.asia.edu.tw/HealthDeclaration#/") #回到表單
     wait.until(EC.presence_of_element_located((By.CLASS_NAME, "text-secondary"))).text #獲取版本
     ver = browser.find_element(By.CLASS_NAME, "text-secondary").text

@@ -50,8 +50,8 @@ def check_ver():
 
 def write():
     try:
-        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "ml-3.btn-info")))
-        print("你已經填寫過表格了！",browser.find_element(By.CLASS_NAME, "text-right.text-success").text)
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "btn.btn-sm.btn-info.mt-2"))) #check_written
+        print("你已經填寫過表格了！",browser.find_element(By.CLASS_NAME, "text-right.text-success").text) #print_when
     except:
         print("填寫中...")
         wait.until(EC.element_to_be_clickable((By.ID, "cell"))).send_keys(Phone) #Phone

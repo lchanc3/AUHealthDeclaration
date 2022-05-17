@@ -26,7 +26,7 @@ Email = "電郵"
 Phone = "電話"
 
 codeVer = 'v.1.3.15'
-wait = WebDriverWait(browser, 5) #等待幾秒 推薦5-10秒
+wait = WebDriverWait(browser, 2) #等待幾秒 推薦2-10秒
 browser.set_page_load_timeout(100)
 '''設定區域結束'''
 
@@ -35,6 +35,13 @@ def login():
     browser.find_element(By.ID, "password").send_keys(Password)
     browser.find_element(By.ID, "password").send_keys(Keys.ENTER)
     print("登入中...")
+
+def login_err():
+    alert = wait.until(EC.alert_is_present())
+    text = alert.text
+    alert.accept()
+    print(text)
+    print("登入失敗，請檢查帳號和密碼是否正確")
 
 def check_ver():
     
@@ -67,15 +74,17 @@ def write():
 
 def main():
     browser.get("https://pacific.asia.edu.tw/HealthDeclaration#/Login")
+    
+    login()
+
     try:
-        login()
+        login_err()
     except:
-        print(browser.switchTo().alert().getText())
-        print("登入失敗，請檢查帳號和密碼是否正確")
-    check_ver()
-    write()
+        check_ver()
+        write()
 
 main()
+
 print("所有工作皆已完成，瀏覽器將於5秒後關閉")
 time.sleep(5)
 browser.quit()

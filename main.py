@@ -5,20 +5,30 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-'''設定區域'''
+'''設定區域開始'''
+#import os
+#os.environ['WDM_LOG_LEVEL'] = '0' #關閉webdriver_manager在cmd內的log，不建議使用
+'''視瀏覽器更改設定區域開始'''
+#參見 https://github.com/SergeyPirogov/webdriver_manager
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
 
-from webdriver_manager.firefox import GeckoDriverManager #現在不用再挑版本安裝了，讚吧？
-from selenium.webdriver.firefox.service import Service #瀏覽器不同這邊還是要改 :P
-browser = webdriver.Firefox(service=Service(GeckoDriverManager().install())) #參見 https://github.com/SergeyPirogov/webdriver_manager
+browser_options = Options()
+browser_options.add_argument('--headless') #firefox 無頭模式
+
+browser = webdriver.Firefox(service=Service(GeckoDriverManager().install()),options=browser_options) 
+'''視瀏覽器更改設定區域結束'''
+
 StudentID = "學號"
 Password = "密碼"
 Email = "電郵"
 Phone = "電話"
 
 codeVer = 'v.1.3.15'
+wait = WebDriverWait(browser, 5) #等待幾秒 推薦5-10秒
 browser.set_page_load_timeout(100)
-wait = WebDriverWait(browser, 10)
-''''''
+'''設定區域結束'''
 
 def login():
     browser.find_element(By.ID, "username").send_keys(StudentID)
@@ -57,7 +67,6 @@ def write():
 
 def main():
     browser.get("https://pacific.asia.edu.tw/HealthDeclaration#/Login")
-
     try:
         login()
     except:

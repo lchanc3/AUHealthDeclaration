@@ -15,7 +15,7 @@ from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 
 browser_options = Options()
-browser_options.add_argument('--headless') #firefox 無頭模式
+browser_options.headless = True #firefox 無頭模式
 
 browser = webdriver.Firefox(service=Service(GeckoDriverManager().install()),options=browser_options) 
 '''視瀏覽器更改設定區域結束'''
